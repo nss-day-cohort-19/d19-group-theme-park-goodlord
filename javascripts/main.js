@@ -6,10 +6,16 @@ console.log("is main loading?");
 require("bootstrap");
 let header = require("./header.js");
 let parkInfo;
+let headerTemplate = require("../handlebars/header.hbs");
 
 header.getInfo()
 	.then((data) => {
 		parkInfo = data;
 		console.log(parkInfo);
+        populateHeader(parkInfo);
 	});
 
+function populateHeader (parkInfo) {
+    console.log(parkInfo);
+    $("#headerID").append(headerTemplate(parkInfo[0]));
+}
