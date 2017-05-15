@@ -8,6 +8,7 @@ let header = require("./header.js");
 let types = require("./types.js");
 let areas = require("./areas.js");
 let attractions = require("./attractions.js");
+let headerTemplate = require("../templates/header.hbs");
 let parkInfo;
 let typesInfo;
 let areasInfo;
@@ -18,6 +19,7 @@ header.getInfo()
     (data) => {
             parkInfo = data;
             console.log(parkInfo);
+            populateHeader(parkInfo);
             return types.getTypes();
 	}).then(
         (data) => {
@@ -38,3 +40,8 @@ header.getInfo()
         console.log(error);
     });
 
+
+function populateHeader (parkInfo) {
+    console.log(parkInfo[0]);
+    $("#headerID").append(headerTemplate(parkInfo[0]));
+}
