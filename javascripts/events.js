@@ -9,14 +9,14 @@ let typeID;
 let map = function () {
 	return new Promise( (resolve, reject) => {
 		$("#area1").click(function(event) {
-			areaID=event.target.replace("area","");
+			areaID = event.currentTarget.id.replace("area","");
 			console.log("event fired on area ", areaID);
 			$("#mapScreeen").addClass("hidden");
 			$("#typeScreeen").removeClass("hidden");
 			resolve(areaID);
 		});
 		$("#area2").click(function(event) {
-			areaID=event.target.replace("area","");
+			areaID = event.currentTarget.id.replace("area","");
 			console.log("event fired on area ", areaID);
 			$("#mapScreeen").addClass("hidden");
 			$("#typeScreeen").removeClass("hidden");
@@ -24,7 +24,7 @@ let map = function () {
 
 		});
 		$("#area3").click(function(event) {
-			areaID=event.target.replace("area","");
+			areaID = event.currentTarget.id.replace("area","");
 			console.log("event fired on area ", areaID);
 			$("#mapScreeen").addClass("hidden");
 			$("#typeScreeen").removeClass("hidden");
@@ -32,7 +32,7 @@ let map = function () {
 
 		});
 		$("#area4").click(function(event) {
-			areaID=event.target.replace("area","");
+			areaID = event.currentTarget.id.replace("area","");
 			console.log("event fired on area ", areaID);
 			$("#mapScreeen").addClass("hidden");
 			$("#typeScreeen").removeClass("hidden");
@@ -40,7 +40,7 @@ let map = function () {
 
 		});
 		$("#area5").click(function(event) {
-			areaID=event.target.replace("area","");
+			areaID = event.currentTarget.id.replace("area","");
 			console.log("event fired on area ", areaID);
 			$("#mapScreeen").addClass("hidden");
 			$("#typeScreeen").removeClass("hidden");
