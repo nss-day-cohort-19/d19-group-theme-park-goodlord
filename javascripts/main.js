@@ -5,6 +5,7 @@ console.log("main.js loaded");
 
 require("bootstrap");
 let header = require("./attractory.js");
+let populate = require("./populate.js");
 let parkInfo;
 let headerTemplate = require("../templates/header.hbs");
 let footerTemplate = require("../templates/footer.hbs");
