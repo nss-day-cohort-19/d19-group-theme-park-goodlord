@@ -12,7 +12,8 @@ header.getInfo()
 	.then((data) => {
 		parkInfo = data;
 		console.log(parkInfo);
-        populateHeader(parkInfo);
+        populateHeader(parkInfo)
+
 	});
 
 function populateHeader (parkInfo) {
