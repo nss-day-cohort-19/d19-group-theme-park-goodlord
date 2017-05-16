@@ -77,20 +77,15 @@ header.getInfo()
             return types.getTypes();
 	}).then(
         (data) => {
-            typesInfo = data;
-//            console.log(typesInfo);
-            populateAreas(typesInfo);
             return areas.getAreas();
     }).then(
         (data) => {
             areasInfo = data;
-//            console.log(areasInfo);
             return attractions.getAttractions();
     }).then(
         (data) => {
             attractionsInfo = data;
-//            console.log(attractionsInfo);
-//            console.log("anything happening");
+            populateAreas();
     }).catch(function(error){
         console.log(error);
     });
@@ -101,19 +96,34 @@ function populateHeader (parkInfo) {
     $("#headerID").append(headerTemplate(parkInfo[0]));
 }
 
-//tl this parses through types data and displays to their parent divs, will need to be converted to handlebars if group wants
-function populateAreas (data) {
+//tl this parses through areas data and displays to their parent divs, will need to be converted to handlebars if group wants
+function populateAreas () {
     for (let i =0; i < 5; i++) {
-        let areaHTML = `<p class="area-type-name">${data[i].name}</p>`;
+        let areaHTML = `<p class="area-type-name">${areasInfo[i].name}</p>`;
 
-        $("#area" + `${i +1}`).append(areaHTML);
+        $("#area" + `${i +1}`).append(areaHTML).click((event) =>{
+
+            let areaID = areasInfo[i].id;
+            let typeID = typesInfo[i].id;
+            populateTypes(areaID, typeID);
+        });
     }
 }
 
+//parses through attractions.type_of_id and types.id
+function populateTypes(areaID, typeID) {
 
-
-
-
+    for (let i = 0; i < attractionsInfo.length; i++) {
+        if (typeID === attractionsInfo[i].type_id) {
+        $("#mapScree").addClass("tl-remove-area-test");
+        }
+    }
+    for (let a = 1; a <= 4; a++) {
+        let typesHTML = `<p>${typesInfo[a].name}</p>`;
+        $("#type" + `${a}`).append(typesHTML);
+        console.log("and what is the current id?",$("#type" + `${a}`));
+        }
+}
 
 
 
