@@ -10,35 +10,36 @@ let headerTemplate = require("../templates/header.hbs");
 let footerTemplate = require("../templates/footer.hbs");
 let events = require("./events.js");
 let attractory = require("./attractory.js");
+let populate = require("./populate.js");
 
 attractory.getParkInfo()
 	.then(
 		populate.header,
-		()=> {console.log("populate.header did not run")}
+		()=> {console.log("populate.header did not run");}
 	).then(
 		populate.footer,
-		()=>{console.log("populate.footer did not run")}
+		()=>{console.log("populate.footer did not run");}
 	).then(
-		populate.areas(areas),
-		() => {console.log("populate.areas did not run")}
+		populate.areas,
+		() => {console.log("populate.areas did not run");}
 	).then(
 		events.map,
-		() => {console.log("events.map did not run")}
+		() => {console.log("events.map did not run");}
 	).then(
-		attractory.getTypeInfo(areaID),
-		() => {console.log("attractory.getTypeInfo did not run")}
+		attractory.getTypeInfo,
+		() => {console.log("attractory.getTypeInfo did not run");}
 	).then(
 		populate.types,
-		() => {console.log("populate.types did not run")}
+		() => {console.log("populate.types did not run");}
 	).then(
-		events.type(areaID),
-		() => {console.log("events.type did not run")}
+		events.type,
+		() => {console.log("events.type did not run");}
 	).then(
-		attractory.getAttractions(areaID, typeID),
-		()=>{console.log("attractory.getAttractions did not run")}
+		attractory.getAttractions,
+		()=>{console.log("attractory.getAttractions did not run");}
 	).then(
 		populate.attractions,
-		()=>{console.log("populate.attractions did not run")}
+		()=>{console.log("populate.attractions did not run");}
 	);
 
 	
