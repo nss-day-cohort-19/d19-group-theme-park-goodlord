@@ -12,10 +12,10 @@ let getAreas = function () {
 	});
 },
 
-getAttractionTypes = function () {
+getAttractionTypes = function (areaID) {
 	return new Promise ((resolve, reject) => {
 		$.getJSON("https://good-lord.firebaseio.com/attraction_types.json", function (data) {
-			resolve(data);
+			resolve(data, areaID);
 		}).fail (function () {
 			console.log("attraction types did not load!");
 		});
