@@ -12,6 +12,7 @@ let events = require("./events.js");
 let attractory = require("./attractory.js");
 let populate = require("./populate.js");
 
+
 attractory.getParkInfo()
 	.then(
 		populate.header,
