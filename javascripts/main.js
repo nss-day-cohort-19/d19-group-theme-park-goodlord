@@ -4,12 +4,12 @@
 console.log("is main loading?");
 
 require("bootstrap");
-let header = require("./header.js");
+let header = require("./attractory.js");
 let parkInfo;
 let headerTemplate = require("../templates/header.hbs");
 let footerTemplate = require("../templates/footer.hbs");
 
-header.getInfo()
+header.getParkInfo()
 	.then((data) => {
 		parkInfo = data;
 		console.log(parkInfo);
