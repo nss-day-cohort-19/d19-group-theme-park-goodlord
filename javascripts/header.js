@@ -7,7 +7,7 @@ let getInfo = function () {
 		$.getJSON("https://good-lord.firebaseio.com/park-info.json", function (data) {
 			resolve(data);
 		}).fail (function () {
-			console.log("header did not load!");
+			console.log("header and footer did not load!");
 		});
 
 	});
