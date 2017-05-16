@@ -9,6 +9,7 @@ let types = require("./types.js");
 let areas = require("./areas.js");
 let attractions = require("./attractions.js");
 let headerTemplate = require("../templates/header.hbs");
+<<<<<<< HEAD
 let parkInfo;
 let typesInfo;
 let areasInfo;
@@ -36,12 +37,24 @@ header.getInfo()
         console.log(error);
     });
 
+=======
+let footerTemplate = require("../templates/footer.hbs");
+
+header.getInfo()
+	.then((data) => {
+		parkInfo = data;
+		console.log(parkInfo);
+        populateHeader(parkInfo);
+        populateFooter(parkInfo)
+	});
+>>>>>>> 01a1218487dba06eabdc3c3e055b016b05956e8e
 
 function populateHeader (parkInfo) {
     console.log(parkInfo[0]);
     $("#headerID").append(headerTemplate(parkInfo[0]));
 }
 
+<<<<<<< HEAD
 //tl this parses through areas data and displays to their parent divs, will need to be converted to handlebars if group wants
 function populateAreas () {
     for (let i =0; i < 5; i++) {
@@ -72,3 +85,8 @@ function populateTypes(areaID, typeID) {
 }
 
 
+=======
+function populateFooter (parkInfo) {
+    $("#footerID").append(footerTemplate(parkInfo[0]));
+}
+>>>>>>> 01a1218487dba06eabdc3c3e055b016b05956e8e
