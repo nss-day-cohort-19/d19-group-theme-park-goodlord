@@ -1,7 +1,7 @@
 "use strict";
 
 let attractory = require("./attractory.js");
-let attraction_modal = require("./attraction_modal.hbs");
+let attraction_modal = require("../templates/attraction_modal.hbs");
 
 let displayAttraction = (att_id) => {
 	let att_info = attractory.getAttData(att_id);
