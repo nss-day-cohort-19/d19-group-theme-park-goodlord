@@ -1,6 +1,6 @@
 "use strict";
 
-console.log("attractor.js loaded");
+console.log("attractory.js loaded");
 
 let getAreas = function () {
 	return new Promise ((resolve, reject) => {
