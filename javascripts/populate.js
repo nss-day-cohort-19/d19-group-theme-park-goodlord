@@ -9,24 +9,46 @@ let areasTemplate = require("../templates/areas.hbs");
 let typesTemplate = require("../templates/types.hbs");
 
 function header (parkInfo) {
-    console.log(parkInfo[0]);
-    $("#headerID").append(headerTemplate(parkInfo[0]));
+    return new Promise ((resolve, reject) => {
+		console.log(parkInfo[0]);
+	    $("#headerID").append(headerTemplate(parkInfo[0]));
+	    resolve(parkInfo);
+    });
 }
 
 function footer (parkInfo) {
+	return new Promise ((resolve, reject) => {
+	console.log("footer info",parkInfo);
     $("#footerID").append(footerTemplate(parkInfo[0]));
+	resolve();
+	});
 }
 
 function areas (parkInfo) {
-    $("#mapScreen").append(headerTemplate(parkInfo[0]));
+	return new Promise ((resolve, reject) => {
+		for(let n=0; n<parkInfo.length; n+=1){
+    		$("#mapScreen").append(areasTemplate(parkInfo[n]));
+		}
+    resolve();
+	});
 }
 
-function types (parkInfo) {
-    $("#typeScreen").append(headerTemplate(parkInfo[0]));
+function types (data, areaID) {
+	return new Promise ((resolve, reject) => {
+		for(let n=0; n<data.length; n+=1){
+			$("#typeScreen").append(typesTemplate(data[n]));
+		}
+    resolve(areaID);
+	});
 }
 
 function attractions (parkInfo) {
-    $("#attractionScreen").append(headerTemplate(parkInfo[0]));
+	return new Promise ((resolve, reject) => {
+		for(let n=0; n<parkInfo.length;n+=1){
+		$("#attractionScreen").append(headerTemplate(parkInfo[n]));
+	}
+	resolve();
+    });
 }
 
 module.exports = {header, footer, areas, types, attractions};

@@ -15,31 +15,34 @@ let attractory = require("./attractory.js");
 attractory.getParkInfo()
 	.then(
 		populate.header,
-		()=> {console.log("populate.header did not run");}
+		()=> {console.log("attractory.getParkInfo did not run");}
 	).then(
 		populate.footer,
+		()=>{console.log("populate.header did not run");}
+	).then(
+		attractory.getAreas,
 		()=>{console.log("populate.footer did not run");}
 	).then(
 		populate.areas,
-		() => {console.log("populate.areas did not run");}
+		() => {console.log("attractory.getAreas did not run");}
 	).then(
 		events.map,
+		() => {console.log("populate.areas did not run");}
+	).then(
+		attractory.getAttractionTypes,
 		() => {console.log("events.map did not run");}
 	).then(
-		attractory.getTypeInfo,
+		populate.types,
 		() => {console.log("attractory.getTypeInfo did not run");}
 	).then(
-		populate.types,
+		events.type,
 		() => {console.log("populate.types did not run");}
 	).then(
-		events.type,
-		() => {console.log("events.type did not run");}
-	).then(
 		attractory.getAttractions,
-		()=>{console.log("attractory.getAttractions did not run");}
+		()=>{console.log("events.type did not run");}
 	).then(
 		populate.attractions,
-		()=>{console.log("populate.attractions did not run");}
+		()=>{console.log("attractory.getAttractions did not run");}
 	);
 
 
