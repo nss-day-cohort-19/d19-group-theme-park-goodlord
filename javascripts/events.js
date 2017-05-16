@@ -54,28 +54,28 @@ let type = function (areaID) {
 	return new  Promise((resolve, reject) => {
 		$("#type1").click(function (event) {
 			typeID = event.target.replace("type", "");
-			console.log("event fired on type ", typeID)
+			console.log("event fired on type ", typeID);
 			$("#typeScreen").addClass("hidden");
 			$("#attractionScreen").removeClass("hidden");
 			resolve(areaID, typeID);
 		});
 		$("#type2").click(function (event) {
 			typeID = event.target.replace("type", "");
-			console.log("event fired on type ", typeID)
+			console.log("event fired on type ", typeID);
 			$("#typeScreen").addClass("hidden");
 			$("#attractionScreen").removeClass("hidden");
 			resolve(areaID, typeID);
 		});
 		$("#type3").click(function (event) {
 			typeID = event.target.replace("type", "");
-			console.log("event fired on type ", typeID)
+			console.log("event fired on type ", typeID);
 			$("#typeScreen").addClass("hidden");
 			$("#attractionScreen").removeClass("hidden");
 			resolve(areaID, typeID);
 		});
 		$("#type4").click(function (event) {
 			typeID = event.target.replace("type", "");
-			console.log("event fired on type ", typeID)
+			console.log("event fired on type ", typeID);
 			$("#typeScreen").addClass("hidden");
 			$("#attractionScreen").removeClass("hidden");
 			resolve(areaID, typeID);
