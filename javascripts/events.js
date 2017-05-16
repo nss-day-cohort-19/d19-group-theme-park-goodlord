@@ -13,14 +13,14 @@ let map = function () {
 			console.log("event fired on area ", areaID);
 			$("#mapScreeen").addClass("hidden");
 			$("#typeScreeen").removeClass("hidden");
-			resolve(areaID)
+			resolve(areaID);
 		});
 		$("#area2").click(function(event) {
 			areaID=event.target.replace("area","");
 			console.log("event fired on area ", areaID);
 			$("#mapScreeen").addClass("hidden");
 			$("#typeScreeen").removeClass("hidden");
-			resolve(areaID)
+			resolve(areaID);
 
 		});
 		$("#area3").click(function(event) {
@@ -28,7 +28,7 @@ let map = function () {
 			console.log("event fired on area ", areaID);
 			$("#mapScreeen").addClass("hidden");
 			$("#typeScreeen").removeClass("hidden");
-			resolve(areaID)
+			resolve(areaID);
 
 		});
 		$("#area4").click(function(event) {
@@ -36,7 +36,7 @@ let map = function () {
 			console.log("event fired on area ", areaID);
 			$("#mapScreeen").addClass("hidden");
 			$("#typeScreeen").removeClass("hidden");
-			resolve(areaID)
+			resolve(areaID);
 
 		});
 		$("#area5").click(function(event) {
@@ -44,7 +44,7 @@ let map = function () {
 			console.log("event fired on area ", areaID);
 			$("#mapScreeen").addClass("hidden");
 			$("#typeScreeen").removeClass("hidden");
-			resolve(areaID)
+			resolve(areaID);
 
 		});
 	});
@@ -84,4 +84,4 @@ let type = function (areaID) {
 };
 
 
-modules.export = {map, type};
+module.exports = {map, type};
