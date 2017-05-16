@@ -5,23 +5,19 @@ console.log("is main loading?");
 
 require("bootstrap");
 let header = require("./attractory.js");
+let populate = require("./populate.js");
 let parkInfo;
-let headerTemplate = require("../templates/header.hbs");
-let footerTemplate = require("../templates/footer.hbs");
 
-header.getParkInfo()
-	.then((data) => {
-		parkInfo = data;
-		console.log(parkInfo);
-        populateHeader(parkInfo);
-        populateFooter(parkInfo);
-	});
 
-function populateHeader (parkInfo) {
-    console.log(parkInfo[0]);
-    $("#headerID").append(headerTemplate(parkInfo[0]));
-}
+// header.getParkInfo()
+// 	.then((data) => {
+// 		parkInfo = data;
+// 		console.log(parkInfo);
+//         populate.header(parkInfo);
+//         populate.footer(parkInfo);
+//         populate.areas(parkInfo);
+//         populate.types(parkInfo);
+//         populate.attractions(parkInfo);
+// 	});
 
-function populateFooter (parkInfo) {
-    $("#footerID").append(footerTemplate(parkInfo[0]));
-}
+
