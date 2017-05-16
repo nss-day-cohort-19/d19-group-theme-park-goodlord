@@ -2,13 +2,12 @@
 
 
 console.log("main.js loaded");
-
-require("bootstrap");
 let header = require("./attractory.js");
 let populate = require("./populate.js");
 let parkInfo;
 let headerTemplate = require("../templates/header.hbs");
 let footerTemplate = require("../templates/footer.hbs");
+let dropDowns = require("./dropdowns.js");
 let events = require("./events.js");
 let attractory = require("./attractory.js");
 
@@ -17,8 +16,11 @@ attractory.getParkInfo()
 		populate.header,
 		()=> {console.log("attractory.getParkInfo did not run");}
 	).then(
+    dropDowns,
+    () => {console.log("header did not run");}
+  ).then
 		populate.footer,
-		()=>{console.log("populate.header did not run");}
+		()=>{console.log("drop downs did not run");}
 	).then(
 		attractory.getAreas,
 		()=>{console.log("populate.footer did not run");}
