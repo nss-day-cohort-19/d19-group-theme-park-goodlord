@@ -12,7 +12,6 @@ let footerTemplate = require("../templates/footer.hbs");
 let events = require("./events.js");
 let attractory = require("./attractory.js");
 
-
 attractory.getParkInfo()
 	.then(
 		populate.header,
