@@ -8,6 +8,7 @@ let header = require("./attractory.js");
 let parkInfo;
 let headerTemplate = require("../templates/header.hbs");
 let footerTemplate = require("../templates/footer.hbs");
+let dropDowns = require("./dropdowns.js");
 
 header.getParkInfo()
 	.then((data) => {
@@ -20,6 +21,7 @@ header.getParkInfo()
 function populateHeader (parkInfo) {
     console.log(parkInfo[0]);
     $("#headerID").append(headerTemplate(parkInfo[0]));
+    dropDowns();
 }
 
 function populateFooter (parkInfo) {
