@@ -14,7 +14,7 @@ header.getInfo()
 		parkInfo = data;
 		console.log(parkInfo);
         populateHeader(parkInfo);
-        populateFooter(parkInfo)
+        populateFooter(parkInfo);
 	});
 
 function populateHeader (parkInfo) {
