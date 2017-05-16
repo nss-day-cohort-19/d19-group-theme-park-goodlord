@@ -25,8 +25,3 @@ function populateHeader (parkInfo) {
 function populateFooter (parkInfo) {
     $("#footerID").append(footerTemplate(parkInfo[0]));
 }
-
-let butt = require("./events.js");
-
-butt.map()
-	.then();
