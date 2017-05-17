@@ -3,6 +3,7 @@
 
 console.log("main.js loaded");
 require("bootstrap");
+var object = {};
 let header = require("./attractory.js");
 let populate = require("./populate.js");
 let parkInfo;
@@ -12,7 +13,8 @@ let dropDowns = require("./dropdowns.js");
 let events = require("./events.js");
 let attractory = require("./attractory.js");
 
-attractory.getParkInfo()
+
+attractory.getParkInfo(object)
 	.then(
 		populate.header,
 		()=> {console.log("attractory.getParkInfo did not run");}

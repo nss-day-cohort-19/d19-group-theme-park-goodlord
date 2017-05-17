@@ -2,40 +2,45 @@
 
 console.log("attractory.js loaded");
 
-let getAreas = function () {
+let getAreas = function (object) {
 	return new Promise ((resolve, reject) => {
 		$.getJSON("https://good-lord.firebaseio.com/areas.json", function (data) {
-			resolve(data);
+			object.areas = data;
+			resolve(object);
 		}).fail (function () {
 			console.log("areas did not load!");
 		});
 	});
-},
+};
 
-getAttractionTypes = function (areaID) {
+let getAttractionTypes = function (object) {
 	return new Promise ((resolve, reject) => {
 		$.getJSON("https://good-lord.firebaseio.com/attraction_types.json", function (data) {
-			resolve(data, areaID);
+			console.log(object, "this is our object");
+			object.types = data;
+			resolve(object);
 		}).fail (function () {
 			console.log("attraction types did not load!");
 		});
 	});
-},
+};
 
-getAttractions = function () {
+let getAttractions = function (object) {
 	return new Promise ((resolve, reject) => {
 		$.getJSON("https://good-lord.firebaseio.com/attractions.json", function (data) {
-			resolve(data);
+			object.attractions = data;
+			resolve(object);
 		}).fail (function () {
 			console.log("attractions did not load!");
 		});
 	});
-},
+};
 
-getParkInfo = function () {
+let getParkInfo = function (object) {
 	return new Promise ((resolve, reject) => {
 		$.getJSON("https://good-lord.firebaseio.com/park-info.json", function (data) {
-			resolve(data);
+			object.parkInfo = data;
+			resolve(object);
 		}).fail (function () {
 			console.log("park info did not load!");
 		});

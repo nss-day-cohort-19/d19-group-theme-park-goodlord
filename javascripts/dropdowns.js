@@ -17,7 +17,7 @@ function createDropDownElement(type) {
     $("#headerID").append(content);
 }
 
-function createDropDowns() {
+function createDropDowns(object) {
 	return new Promise ((resolve, reject) => {
 		attractory.getAttractionTypes().then((typeData) => {
 			let types = typeData;
