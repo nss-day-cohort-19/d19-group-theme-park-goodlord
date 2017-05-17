@@ -8,49 +8,50 @@ let attractionTemplate = require("../templates/attractions.hbs");
 let areasTemplate = require("../templates/areas.hbs");
 let typesTemplate = require("../templates/types.hbs");
 
-function header (parkInfo) {
+function header (object) {
     return new Promise ((resolve, reject) => {
-		console.log(parkInfo[0]);
-	    $("#headerID").append(headerTemplate(parkInfo[0]));
-	    resolve(parkInfo);
+		console.log(object.parkInfo, "dis one");
+	    $("#headerID").append(headerTemplate(object.parkInfo[0]));
+	    resolve(object);
     });
 }
 
-function footer (parkInfo) {
+function footer (object) {
 	return new Promise ((resolve, reject) => {
-	console.log("footer info",parkInfo);
-    $("#footerID").append(footerTemplate(parkInfo[0]));
-	resolve();
+	console.log("footer info", object.parkInfo);
+    $("#footerID").append(footerTemplate(object.parkInfo[0]));
+	resolve(object);
 	});
 }
 
-function areas (parkInfo) {
+function areas (object) {
 	return new Promise ((resolve, reject) => {
-		for(let n=0; n<parkInfo.length; n+=1){
-    		$("#mapScreen").append(areasTemplate(parkInfo[n]));
+		for(let n=0; n<object.areas.length; n+=1){
+    		$("#mapScreen").append(areasTemplate(object.areas[n]));
 		}
-    resolve(parkInfo);
+    resolve(object);
 	});
 }
 
-function types (data) {
+function types (object) {
 	return new Promise ((resolve, reject) => {
-		for(let n=0; n<data[0].length; n+=1){
-			$("#typeScreen").append(typesTemplate(data[0][n]));
+		for(let n=0; n<object.types.length; n+=1){
+			$("#typeScreen").append(typesTemplate(object.types[n]));
 		}
-		console.log(data[0], "second data 0");
-		console.log("jason's second request", data[1]);
-    resolve(data);
+    resolve(object);
 	});
 }
 
-function attractions (parkInfo) {
+function attractions (object) {
 	return new Promise ((resolve, reject) => {
-		for(let n=0; n<parkInfo.length;n+=1){
-		$("#attractionScreen").append(headerTemplate(parkInfo[n]));
-	}
-	resolve();
+		let attractions = object.attractions.filter(function (a) { if(a.type_id  == object.typeID) {return a;}});
+		if(object.areaID) {attractions = attractions.filter(function (a) { if(a.area_id  == object.areaID) {return a;}});}
+		for(let n=0; n < attractions.length;n+=1){
+			$("#attractionScreen").append(headerTemplate(attractions[n]));
+		}
+	resolve(object);
     });
 }
+
 
 module.exports = {header, footer, areas, types, attractions};
