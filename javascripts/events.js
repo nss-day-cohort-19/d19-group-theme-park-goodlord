@@ -18,6 +18,7 @@ console.log("events.js loaded");
 // 	resolve(object);
 // };
 
+
 let type =function (object) {
 	return new Promise ( (resolve, reject) => {
 		$("#typeScreen").click( function(event) {
@@ -31,6 +32,7 @@ let type =function (object) {
 		});
 	});
 };
+
 
 let map =function (object) {
 	return new Promise ( (resolve, reject) => {
