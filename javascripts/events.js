@@ -55,7 +55,7 @@ let type = function (areaID) {
 		$("#type1").click(function (event) {
 			typeID = event.currentTarget.id.replace("type", "");
 			console.log("event fired on type ", typeID);
-			//$("#typeScreen").addClass("hidden");
+			$("#typeScreen").addClass("hidden");
 			$("#attractionScreen").removeClass("hidden");
 			resolve(areaID, typeID);
 		});
