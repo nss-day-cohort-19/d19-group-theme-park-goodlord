@@ -29,16 +29,18 @@ function areas (parkInfo) {
 		for(let n=0; n<parkInfo.length; n+=1){
     		$("#mapScreen").append(areasTemplate(parkInfo[n]));
 		}
-    resolve();
+    resolve(parkInfo);
 	});
 }
 
-function types (data, areaID) {
+function types (data) {
 	return new Promise ((resolve, reject) => {
-		for(let n=0; n<data.length; n+=1){
-			$("#typeScreen").append(typesTemplate(data[n]));
+		for(let n=0; n<data[0].length; n+=1){
+			$("#typeScreen").append(typesTemplate(data[0][n]));
 		}
-    resolve(areaID);
+		console.log(data[0], "second data 0");
+		console.log("jason's second request", data[1]);
+    resolve(data);
 	});
 }
 
