@@ -15,16 +15,23 @@ let getAreas = function () {
 getAttractionTypes = function (areaID) {
 	return new Promise ((resolve, reject) => {
 		$.getJSON("https://good-lord.firebaseio.com/attraction_types.json", function (data) {
-			resolve(data, areaID);
+			let array = [data, areaID];
+			resolve(array);
 		}).fail (function () {
 			console.log("attraction types did not load!");
 		});
 	});
 },
 
-getAttractions = function () {
+getAttractions = function (stuff) {
 	return new Promise ((resolve, reject) => {
+		console.log(stuff, "stuff");
 		$.getJSON("https://good-lord.firebaseio.com/attractions.json", function (data) {
+			data = data.filter(function(a) { return a.type_id == stuff[0];});
+		if(stuff[1]) {
+			data = data.filter(function(a) { return a.area_id == stuff[1];});
+		}
+			console.log(data);
 			resolve(data);
 		}).fail (function () {
 			console.log("attractions did not load!");
