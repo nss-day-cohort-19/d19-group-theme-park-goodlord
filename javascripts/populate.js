@@ -47,7 +47,8 @@ function attractions (object) {
 		let attractions = object.attractions.filter(function (a) { if(a.type_id  == object.typeID) {return a;}});
 		if(object.areaID) {attractions = attractions.filter(function (a) { if(a.area_id  == object.areaID) {return a;}});}
 		for(let n=0; n < attractions.length;n+=1){
-			$("#attractionScreen").append(headerTemplate(attractions[n]));
+			$("#attractionScreen").append(attractionTemplate(attractions[n]));
+            console.log("attractions", attractions);
 		}
 	resolve(object);
     });
