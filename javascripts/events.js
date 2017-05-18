@@ -3,6 +3,7 @@
 console.log("events.js loaded");
 let attractory = require("./attractory.js");
 let populate = require("./populate.js");
+let attractionModal = require("./create_modal.js");
 
 // let areaclick = function(event, object, resolve) {
 // 	object.areaID = event.currentTarget.id.replace("area","");
@@ -44,6 +45,10 @@ let map =function (object) {
 				$("#mapScreen").addClass("hidden");
 				$("#typeScreen").removeClass("hidden");
 				populate.types(object);
+			}
+			if (event.target.classList[0] == "attraction") {
+				let attractions = event.target.id.replace("attractions", "");
+				attractionModal(attractions);
 			}
 		});
 	});
