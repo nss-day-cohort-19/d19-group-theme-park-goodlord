@@ -2,8 +2,8 @@
 
 function createDropDownElement(type) {
     let liString = "";
-    for(let i = 0; i < type.att.length; i++){
-    	liString += `<li id="att${type.att[i].id}">${type.att[i].name}</li>`;
+    for(let i = 0; i < type.attList.length; i++){
+    	liString += `<li id="att${type.attList[i].id}">${type.attList[i].name}</li>`;
     }
  	let ulString = `<div class="dropdown"><button class="btn btn-primary dropdown-toggle" type="button" id="drop${type.id}" data-toggle="dropdown">${type.name}
     <span class="caret"></span></button>
@@ -17,11 +17,11 @@ function createDropDowns(object) {
 	return new Promise ((resolve, reject) => {
 		for(let t in object.types) {
 			let type = object.types[t];
-			object.types.att = [];
+			object.types[t].attList = [];
 			for(let i = 0; i < object.attractions.length; i++) {
 				let obj = object.attractions[i];
-				if(obj.type_ID == t.id) {
-					object.types.att.push(obj);
+				if(obj.type_id == type.id) {
+					object.types[t].attList.push(obj);
 				}
 			}
 		}
