@@ -12,6 +12,7 @@ let footerTemplate = require("../templates/footer.hbs");
 let dropDowns = require("./dropdowns.js");
 let events = require("./events.js");
 let attractory = require("./attractory.js");
+let backbtn = require('./back.js');
 
 Promise.all([attractory.getAttractionTypes, attractory.getAttractions])
 	.then(
@@ -30,7 +31,6 @@ attractory.getParkInfo(object)
 		events.map,
 		() => {console.log("populate.areas did not run");}
 	);
-
 
 attractory.getAttractionTypes(object)
 	 .then(
