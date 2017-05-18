@@ -56,6 +56,7 @@ let eventsWithTimes = function(object) {
 				timedAttractions.push(object.attractions[n]);
 			}
 		}
+		object.timedEvents = timedAttractions;
 		console.log("array of timed attractions", timedAttractions);
 		resolve(object);
 	});
