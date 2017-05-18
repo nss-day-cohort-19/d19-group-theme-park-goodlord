@@ -1,37 +1,80 @@
-#headerID {
-    border-bottom: 1px solid black;
+body {
+    font-family: 'Roboto', sans-serif;
+    width: 1334px;
 }
 
 .headerDiv {
-    text-align: center;
     width: 80%;
     margin: auto;
 }
 
 .parkDescrip {
     text-align: justify;
+    color: white;
 }
 
-#footerID {
-    border-top: 1px solid lightblue;
-}
-
-.footerDiv {
+.parkName {
     text-align: center;
-    margin-top: 10px;
+    color: white;
 }
 
-.footerDiv p {
+.parkLocal {
+    text-align: center;
+    color: white;
+    font-size: 1.3em;
+}
+
+#typeScreen {
+    padding: 30px 0;
+}
+
+.footerStyle {
+    text-align: center;
+    background-image: url("../../images/header1.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 20px 0;
+    color: white;
+    font-size: 1.3em;
     margin: 0;
+}
+
+a:link {
+    color: #63d2ff;
+}
+
+a:visited {
+    color: #63d2ff;
+}
+
+a:hover {
+    color: #42f4e2;
+}
+
+a:active {
+    color: #42f4e2;
 }
 
 .hidden {
     display: none;
 }
+.typeImg, .attractionsImg {
+    background-image: url("../../images/backgroundTypes.jpg");
+    background-repeat: no-repeat;
+    // background-size: 100% 100%;
+}
+
+.typeText {
+    text-align: center;
+    color: white;
+    padding: 40px 0;
+}
+
+.headerStyle {
+    background-image: url("../../images/header1.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
 
 .dropdown {
     float: left;
-}
-body {
-    width: 1334px;
 }

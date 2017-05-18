@@ -51,7 +51,8 @@ function attractions (object) {
 		if(object.areaID) {attractions = attractions.filter(function (a) { if(a.area_id  == object.areaID) {return a;}});}
 		$("#attractionScreen").html(`<button class="Attractback" type="button" class="btn">BACK</button>`);
 		for(let n=0; n < attractions.length;n+=1){
-			$("#attractionScreen").append(headerTemplate(attractions[n]));
+			$("#attractionScreen").append(attractionTemplate(attractions[n]));
+            console.log("attractions", attractions);
 		}
 		backbtn.backAttract();
 	resolve(object);
