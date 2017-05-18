@@ -17,8 +17,6 @@ let populate = require("./populate.js");
 // 	$("#typeScreen").addClass("hidden");
 // 	$("#attractionScreen").removeClass("hidden");
 // 	resolve(object);
-// };
-
 
 let type =function (object) {
 	return new Promise ( (resolve, reject) => {
@@ -37,7 +35,7 @@ let type =function (object) {
 
 let map =function (object) {
 	return new Promise ( (resolve, reject) => {
-		$("#mapScreen").click( function(event) {
+		$("#master-wrapper").click( function(event) {
 			console.log(event);
 			if (event.target.classList[0] == "parkArea") {
 				object.areaID = event.target.id.replace("area", "");
