@@ -3,41 +3,35 @@
 let attractory = require("./attractory.js");
 
 function createDropDownElement(type) {
-	let liString = "";
-	if(type.attList.length === 0) { return;}
-	for(let att in type.attList) {
-		liString += `<li id="id${type.attList[att].id}">${type.attList[att].name}</li>`;
-	}
-	liString = `<div class="dropdown">
+ 	let ulString = `<div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">${type.name}
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">` + liString + `</ul></div>`;
-    var content = document.createElement("div");
-    content.innerHTML = liString;
-    $("#headerID").append(content);
+    <span class="caret"></span></button><ul class="dropdown-menu" id="drop${type.id}"></ul></div>`;
+	var content = document.createElement("div");
+	content.innerHTML = ulString;
+ 	$("#headerID").append(content);
 }
 
 function createDropDowns(object) {
 	return new Promise ((resolve, reject) => {
-		attractory.getAttractionTypes().then((typeData) => {
-			let types = typeData;
+		attractory.getAttractionTypes(0).then((typeData) => {
+			let types = typeData[0];
+			console.log(types, "attTypes");
 			for(let type in types) {
-				types[type].attList = [];
-			}
-			attractory.getAttractions().then((attData) => {
-				let attractions = attData;
-				for(let a = 0; a < attractions.length; a++) {
-					let type = attractions[a].type_id - 1;
-					let holderObj = {"id": attractions[a].id, "name": attractions[a].name};
-					types[type].attList.push(holderObj);
-				}
-				for(let type in types) {
 					createDropDownElement(types[type]);
-				}
-			});
+			}
 		});
 		resolve();
 	});
 }
 
 module.exports = createDropDowns;
+
+	// let liString = "";
+	// if(type.attList.length === 0) { return;}
+	// for(let att in type.attList) {
+	// 	liString += `<li id="id${type.attList[att].id}">${type.attList[att].name}</li>`;
+	// }
+	// liString = `<div class="dropdown">
+ //    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">${type.name}
+ //    <span class="caret"></span></button>
+ //    <ul class="dropdown-menu">` + liString + `</ul></div>`;
