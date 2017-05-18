@@ -29,7 +29,7 @@ function createTimeDropdown() {
     	}
     }
     content += `</ul>`;
-	$("#headerID").append(content);
+	$("#dropdownStyle").append(content);
 }
 
 function createDropDowns(object) {
