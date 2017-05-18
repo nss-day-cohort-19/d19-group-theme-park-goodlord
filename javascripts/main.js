@@ -14,11 +14,21 @@ let events = require("./events.js");
 let attractory = require("./attractory.js");
 let backbtn = require('./back.js');
 
-Promise.all([attractory.getAttractionTypes, attractory.getAttractions])
-	.then(
-		dropDowns,
-		() => {console.log("data load for dropdowns incomplete");}
-	);
+// Promise.all([attractory.getAttractionTypes, attractory.getAttractions])
+// 	.then(
+// 		dropDowns,
+// 		() => {console.log("data load for dropdowns incomplete");}
+// 	);
+
+attractory.getAttractionTypes(object)
+.then(
+attractory.getAttractions,
+() => {console.log("types did not load");}
+)
+.then(
+dropDowns,
+() => {console.log("data load for dropdowns incomplete");}
+);
 
 attractory.getParkInfo(object)
 	.then(
