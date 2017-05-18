@@ -5,7 +5,7 @@ var moment = require('moment');
 function createDropDownElement(type) {
     let liString = "";
     for(let i = 0; i < type.attList.length; i++){
-    	liString += `<li id="att${type.attList[i].id}">${type.attList[i].name}</li>`;
+    	liString += `<li class="attraction" id="attractions${type.attList[i].id}">${type.attList[i].name}</li>`;
     }
  	let ulString = `<div class="dropdown"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">${type.name}
     <span class="caret"></span></button>
@@ -29,7 +29,7 @@ function createTimeDropdown() {
     	}
     }
     content += `</ul>`;
-	$("#headerID").append(content);
+	$("#dropdownStyle").append(content);
 }
 
 function createDropDowns(object) {
