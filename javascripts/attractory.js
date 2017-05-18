@@ -62,7 +62,24 @@ let getParkInfo = function (object) {
 	});
 };
 
-module.exports = {getAreas, getAttractionTypes, getAttractions, getParkInfo, getAttData};
+
+let eventsWithTimes = function(object) {
+	return new Promise ((resolve, reject) => {
+		let timedAttractions = [];
+		for(let n=0; n<object.attractions.length; n+=1) {
+			if("times" in object.attractions[n]) {
+				timedAttractions.push(object.attractions[n]);
+			}
+		}
+		object.timedEvents = timedAttractions;
+		console.log("array of timed attractions", timedAttractions);
+		resolve(object);
+	});
+};
+
+
+module.exports = {getAreas, getAttractionTypes, getAttractions, getParkInfo, eventsWithTimes};
+
 
 
 // let areas = []''
