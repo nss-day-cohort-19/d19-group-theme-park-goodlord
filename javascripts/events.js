@@ -3,6 +3,7 @@
 console.log("events.js loaded");
 let attractory = require("./attractory.js");
 let populate = require("./populate.js");
+
 // let areaclick = function(event, object, resolve) {
 // 	object.areaID = event.currentTarget.id.replace("area","");
 // 	console.log("event fired on area ", object.areaID);

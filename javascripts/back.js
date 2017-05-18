@@ -1,14 +1,19 @@
 "use strict";
 
-let events = require("./events.js");
+let backType = function() {
+	$('.Typesback').click(function(event) {
+		console.log("back event is firing", event);
+		$("#typeScreen").addClass('hidden');
+		$("#mapScreen").removeClass('hidden');
+	});
+};
 
-$('#Typesback').click(function(event) {
-	$("typeScreen").addClass('hidden');
-	$("mapScreen").removeClass('hidden');
+let backAttract = function() {
+	$(".Attractback").click(function(event) {
+		console.log("back event is firing", event);
+		$("#attractionScreen").addClass('hidden');
+		$("#typeScreen").removeClass('hidden');
+	});
+};
 
-});
-
-$("#Attractback").click(function(event) {
-	$("attractionScreen").addClass('hidden');
-	$("typeScreen").removeClass('hidden');
-});
+module.exports = {backType, backAttract};
