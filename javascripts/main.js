@@ -49,7 +49,11 @@ attractory.getAttractions(object)
 		()=>{console.log("attractory.getAttractions did not run");}
 	);
 
-
+attractory.getAttractions(object)
+	.then(
+		attractory.eventsWithTimes,
+		()=>{}
+	);
 
 
 
