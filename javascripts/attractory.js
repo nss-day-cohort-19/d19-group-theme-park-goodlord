@@ -48,6 +48,18 @@ let getParkInfo = function (object) {
 	});
 };
 
+
+let eventsWithTimes = function(object) {
+	let timedAttractions = [];
+	for(let n=0; n<object.attractions; n+=1) {
+		if("<times>" in object.attractions[n]) {
+			timedAttreactions.push(object.attractions[n]);
+		}
+	}
+	console.log("array of timed attractions", timedAttreactions);
+}
+
+
 module.exports = {getAreas, getAttractionTypes, getAttractions, getParkInfo};
 
 
