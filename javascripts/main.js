@@ -14,6 +14,7 @@ let events = require("./events.js");
 let attractory = require("./attractory.js");
 
 
+
 attractory.getParkInfo(object)
 	.then(
 		populate.header,
@@ -21,16 +22,19 @@ attractory.getParkInfo(object)
 	).then(
     	populate.footer,
 		()=>{console.log("header did not run");}
-  	).then(
-  		dropDowns,
-    	() => {console.log("footer did not run");}
-	).then(
-		attractory.getAreas,
-		()=>{console.log("dropdowns did not run");}
-	).then(
-		populate.areas,
-		() => {console.log("attractory.getAreas did not run");}
-	).then(
+  	)
+  // 	.then(
+  // 		dropDowns,
+  //   	() => {console.log("footer did not run");}
+	 // )
+	//.then(
+	// 	attractory.getAreas,
+	// 	()=>{console.log("dropdowns did not run");}
+	// ).then(
+	// 	populate.areas,
+	// 	() => {console.log("attractory.getAreas did not run");}
+	// )
+	.then(
 		events.map,
 		() => {console.log("populate.areas did not run");}
 	).then(
