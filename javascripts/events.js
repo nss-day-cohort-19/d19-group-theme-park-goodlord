@@ -38,8 +38,8 @@ let map =function (object) {
 	return new Promise ( (resolve, reject) => {
 		$("#mapScreen").click( function(event) {
 			console.log(event);
-			if (event.target.parentElement.classList[0] == "parkArea") {
-				object.areaID = event.target.parentElement.id.replace("area", "");
+			if (event.target.classList[0] == "parkArea") {
+				object.areaID = event.target.id.replace("area", "");
 				console.log("event fired on area ", object.areaID);
 				$("#mapScreen").addClass("hidden");
 				$("#typeScreen").removeClass("hidden");
