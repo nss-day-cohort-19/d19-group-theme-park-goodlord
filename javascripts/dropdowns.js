@@ -7,7 +7,7 @@ function createDropDownElement(type) {
     }
  	let ulString = `<div class="dropdown"><button class="btn btn-primary dropdown-toggle" type="button" id="drop${type.id}" data-toggle="dropdown">${type.name}
     <span class="caret"></span></button>
-    <ul class="dropdown-menu" id="type${type.id}">` + liString + `</ul></div>`;
+    <ul class="dropdown-menu">` + liString + `</ul></div>`;
     var content = document.createElement("div");
     content.innerHTML = ulString;
     $("#headerID").append(content);
