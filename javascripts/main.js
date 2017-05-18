@@ -22,7 +22,7 @@ attractory.getParkInfo(object)
     	populate.footer,
 		()=>{console.log("header did not run");}
   	).then(
-  		dropDowns.createDropDowns,
+  		dropDowns,
     	() => {console.log("footer did not run");}
 	).then(
 		attractory.getAreas,
