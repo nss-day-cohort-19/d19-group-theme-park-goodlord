@@ -12,7 +12,7 @@ function createDropDownElement(type) {
     <ul class="dropdown-menu">` + liString + `</ul></div>`;
     var content = document.createElement("div");
     content.innerHTML = ulString;
-    $("#headerID").append(content);
+    $("#dropdownStyle").append(content);
 }
 function createTimeDropdown() {
 	let content = `<div class="dropdown"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Time Events
