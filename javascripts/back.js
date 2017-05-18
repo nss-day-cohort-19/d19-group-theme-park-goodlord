@@ -1,11 +1,14 @@
 "use strict";
 
-$('#back').click(function(event) {
-	let current = $('div.container-fluid').not('.hidden');
+let events = require("./events.js");
 
-	if(current[0] == $('#typeScreen')[0]){
-		$('#back').addClass('hidden');
-	}
-	current.addClass('hidden');
-	current.prev().removeClass('hidden');
+$('#Typesback').click(function(event) {
+	$("typeScreen").addClass('hidden');
+	$("mapScreen").removeClass('hidden');
+
+});
+
+$("#Attractback").click(function(event) {
+	$("attractionScreen").addClass('hidden');
+	$("typeScreen").removeClass('hidden');
 });
