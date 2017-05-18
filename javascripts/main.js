@@ -12,8 +12,13 @@ let footerTemplate = require("../templates/footer.hbs");
 let dropDowns = require("./dropdowns.js");
 let events = require("./events.js");
 let attractory = require("./attractory.js");
+let backbtn = require('./back.js');
 
-
+Promise.all([attractory.getAttractionTypes, attractory.getAttractions])
+	.then(
+		dropDowns,
+		() => {console.log("data load for dropdowns incomplete");}
+	);
 
 attractory.getParkInfo(object)
 	.then(
@@ -22,34 +27,22 @@ attractory.getParkInfo(object)
 	).then(
     	populate.footer,
 		()=>{console.log("header did not run");}
-  	)
-  // 	.then(
-  // 		dropDowns,
-  //   	() => {console.log("footer did not run");}
-	 // )
-	//.then(
-	// 	attractory.getAreas,
-	// 	()=>{console.log("dropdowns did not run");}
-	// ).then(
-	// 	populate.areas,
-	// 	() => {console.log("attractory.getAreas did not run");}
-	// )
-	.then(
+  	).then(
 		events.map,
 		() => {console.log("populate.areas did not run");}
-	).then(
-		attractory.getAttractionTypes,
-		() => {console.log("events.map did not run");}
-	).then(
+	);
+
+attractory.getAttractionTypes(object)
+	 .then(
 		populate.types,
 		() => {console.log("attractory.getTypeInfo did not run");}
 	).then(
 		events.type,
 		() => {console.log("populate.types did not run");}
-	).then(
-		attractory.getAttractions,
-		()=>{console.log("events.type did not run");}
-	).then(
+	);
+
+attractory.getAttractions(object)
+	.then(
 		populate.attractions,
 		()=>{console.log("attractory.getAttractions did not run");}
 	);

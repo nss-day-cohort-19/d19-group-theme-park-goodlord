@@ -1,11 +1,19 @@
 "use strict";
 
-$('#back').click(function(event) {
-	let current = $('div.container-fluid').not('.hidden');
+let backType = function() {
+	$('.Typesback').click(function(event) {
+		console.log("back event is firing", event);
+		$("#typeScreen").addClass('hidden');
+		$("#mapScreen").removeClass('hidden');
+	});
+};
 
-	if(current[0] == $('#typeScreen')[0]){
-		$('#back').addClass('hidden');
-	}
-	current.addClass('hidden');
-	current.prev().removeClass('hidden');
-});
+let backAttract = function() {
+	$(".Attractback").click(function(event) {
+		console.log("back event is firing", event);
+		$("#attractionScreen").addClass('hidden');
+		$("#typeScreen").removeClass('hidden');
+	});
+};
+
+module.exports = {backType, backAttract};

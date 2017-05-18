@@ -58,7 +58,6 @@ a:active {
 .hidden {
     display: none;
 }
-
 .typeImg, .attractionsImg {
     background-image: url("../../images/backgroundTypes.jpg");
     background-repeat: no-repeat;
@@ -75,4 +74,7 @@ a:active {
     background-image: url("../../images/header1.jpeg");
     background-repeat: no-repeat;
     background-size: 100%;
+
+.dropdown {
+    float: left;
 }
