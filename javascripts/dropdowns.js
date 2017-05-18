@@ -1,42 +1,34 @@
 "use strict";
 
-let attractory = require("./attractory.js");
-
 function createDropDownElement(type) {
-	let liString = "";
-	if(type.attList.length === 0) { return;}
-	for(let att in type.attList) {
-		liString += `<li id="id${type.attList[att].id}">${type.attList[att].name}</li>`;
-	}
-	liString = `<div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">${type.name}
+    let liString = "";
+    for(let i = 0; i < type.att.length; i++){
+    	liString += `<li id="att${type.att[i].id}">${type.att[i].name}</li>`;
+    }
+ 	let ulString = `<div class="dropdown"><button class="btn btn-primary dropdown-toggle" type="button" id="drop${type.id}" data-toggle="dropdown">${type.name}
     <span class="caret"></span></button>
-    <ul class="dropdown-menu">` + liString + `</ul></div>`;
+    <ul class="dropdown-menu" id="type${type.id}">` + liString + `</ul></div>`;
     var content = document.createElement("div");
-    content.innerHTML = liString;
+    content.innerHTML = ulString;
     $("#headerID").append(content);
 }
 
 function createDropDowns(object) {
 	return new Promise ((resolve, reject) => {
-		attractory.getAttractionTypes().then((typeData) => {
-			let types = typeData;
-			for(let type in types) {
-				types[type].attList = [];
+		for(let t in object.types) {
+			let type = object.types[t];
+			object.types.att = [];
+			for(let i = 0; i < object.attractions.length; i++) {
+				let obj = object.attractions[i];
+				if(obj.type_ID == t.id) {
+					object.types.att.push(obj);
+				}
 			}
-			attractory.getAttractions().then((attData) => {
-				let attractions = attData;
-				for(let a = 0; a < attractions.length; a++) {
-					let type = attractions[a].type_id - 1;
-					let holderObj = {"id": attractions[a].id, "name": attractions[a].name};
-					types[type].attList.push(holderObj);
-				}
-				for(let type in types) {
-					createDropDownElement(types[type]);
-				}
-			});
-		});
-		resolve();
+		}
+		for(let type in object.types) {
+			createDropDownElement(object.types[type]);
+		}
+		resolve(object);
 	});
 }
 

@@ -19,8 +19,6 @@ let getAttractionTypes = function (object) {
 			console.log(object, "this is our object");
 			object.types = data;
 			resolve(object);
-			let array = [data, areaID];
-			resolve(array);
 		}).fail (function () {
 			console.log("attraction types did not load!");
 		});
@@ -30,7 +28,6 @@ let getAttractionTypes = function (object) {
 
 let getAttractions = function (object) {
 	return new Promise ((resolve, reject) => {
-		console.log(stuff, "stuff");
 		$.getJSON("https://good-lord.firebaseio.com/attractions.json", function (data) {
 			object.attractions = data;
 			resolve(object);

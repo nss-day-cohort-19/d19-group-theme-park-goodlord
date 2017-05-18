@@ -22,7 +22,7 @@ attractory.getParkInfo(object)
     	populate.footer,
 		()=>{console.log("header did not run");}
   	).then(
-  		dropDowns,
+  		dropDowns.createDropDowns,
     	() => {console.log("footer did not run");}
 	).then(
 		attractory.getAreas,
@@ -33,9 +33,6 @@ attractory.getParkInfo(object)
 	).then(
 		events.map,
 		() => {console.log("populate.areas did not run");}
-	).then(
-		attractory.getAttractionTypes,
-		() => {console.log("events.map did not run");}
 	).then(
 		populate.types,
 		() => {console.log("attractory.getTypeInfo did not run");}
