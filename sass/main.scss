@@ -24,9 +24,9 @@ body {
     font-size: 1.3em;
 }
 
-#typeScreen {
-    padding: 30px 0;
-}
+// #typeScreen {
+//     padding: 30px 0;
+// }
 
 .footerStyle {
     text-align: center;
@@ -58,6 +58,7 @@ a:active {
 .hidden {
     display: none;
 }
+
 .typeImg, .attractionsImg {
     background-image: url("../../images/backgroundTypes.jpg");
     background-repeat: no-repeat;
@@ -74,7 +75,23 @@ a:active {
     background-image: url("../../images/header1.jpeg");
     background-repeat: no-repeat;
     background-size: 100%;
+}
 
 .dropdown {
     float: left;
 }
+
+button {
+    padding: 5px 10px;
+    background-color: #9ef3ff;
+    font-size: 1.3em;
+    border: 1px solid lightgrey;
+    appearance: none;
+    display: block;
+}
+
+
+
+
+
+
