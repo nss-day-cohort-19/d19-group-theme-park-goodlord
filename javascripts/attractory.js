@@ -2,7 +2,9 @@
 
 console.log("attractory.js loaded");
 
-var attractionsList, typeList, areaList;
+var attractionsList, typeList, areaList, timedEvents;
+
+var moment = require('moment');
 
 let getAreas = function (object) {
 	return new Promise ((resolve, reject) => {
@@ -71,14 +73,30 @@ let eventsWithTimes = function(object) {
 				timedAttractions.push(object.attractions[n]);
 			}
 		}
-		object.timedEvents = timedAttractions;
+		timedEvents = timedAttractions;
 		console.log("array of timed attractions", timedAttractions);
 		resolve(object);
 	});
 };
 
+function getTime(times) {
+	let time1 = moment(times).clone();
+	let time2 = moment(times).clone();
+	time1.add(15, 'm');
+	console.log("time1 time2", time1);
+	let timeArray = [];
+	for (var i = 0; i < timedEvents.length; i++) {
+		for (var j = 0; j < timedEvents[i].times.length; j++) {
+			if (moment(timedEvents[i].times[j]).isBetween(time2, time1)) {
+				timeArray.push(timedEvents[i]);
+			}
+		}
+	}
+	return timeArray;
+}
 
-module.exports = {getAreas, getAttractionTypes, getAttractions, getParkInfo, eventsWithTimes};
+
+module.exports = {getAreas, getAttractionTypes, getAttractions, getParkInfo, eventsWithTimes, getAttData, getTime};
 
 
 
