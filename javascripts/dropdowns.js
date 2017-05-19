@@ -35,6 +35,7 @@ function createTimeDropdown() {
 function createDropDowns(object) {
 	return new Promise ((resolve, reject) => {
 		for(let t in object.types) {
+            console.log("test", object.types);
 			let type = object.types[t];
 			object.types[t].attList = [];
 			for(let i = 0; i < object.attractions.length; i++) {

@@ -78,7 +78,7 @@ let eventsWithTimes = function(object) {
 };
 
 
-module.exports = {getAreas, getAttractionTypes, getAttractions, getParkInfo, eventsWithTimes};
+module.exports = {getAreas, getAttractionTypes, getAttractions, getParkInfo, eventsWithTimes, getAttData};
 
 
 
