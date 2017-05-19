@@ -4,6 +4,8 @@ console.log("events.js loaded");
 let attractory = require("./attractory.js");
 let populate = require("./populate.js");
 let attractionModal = require("./create_modal.js");
+var moment = require('moment');
+let attractionTemplate = require("../templates/attractions.hbs");
 
 // let areaclick = function(event, object, resolve) {
 // 	object.areaID = event.currentTarget.id.replace("area","");
@@ -28,6 +30,7 @@ let type =function (object) {
 				console.log("event fired on Type ", object.typeID);
 				$("#typeScreen").addClass("hidden");
 				$("#attractionScreen").removeClass("hidden");
+				$("#timesScreen").addClass("hidden");
 				populate.attractions(object);
 			}
 		});
@@ -44,16 +47,31 @@ let map =function (object) {
 				console.log("event fired on area ", object.areaID);
 				$("#mapScreen").addClass("hidden");
 				$("#typeScreen").removeClass("hidden");
+				$("#timesScreen").addClass("hidden");
 				populate.types(object);
 			}
 			if (event.target.classList[0] == "attraction") {
 				let attractions = event.target.id.replace("attractions", "");
 				attractionModal(attractions);
 			}
+			if (event.target.parentElement.id == "timedrop") {
+				let times = event.target.innerHTML;
+				console.log("testTime", times);
+				if (times == "Now") {
+					times = moment().format("HH:mm");
+				}
+				$("#typeScreen").addClass("hidden");
+				$("#attractionScreen").addClass("hidden");
+				$("#timesScreen").removeClass("hidden");
+				let timeArray = attractory.getTime(times);
+				console.log(timeArray);
+				for (var i = 0; i < timeArray.length; i++) {
+					$("#timesScreen").append(attractionTemplate(timeArray[i]));
+				}
+			}
 		});
 	});
 };
-
 
 
 // let map = function (object) {
