@@ -70,6 +70,7 @@ let map =function (object) {
 					console.log("timeArray[i]", timeArray[i]);
 					$("#timesScreen").append(attractionTemplate(timeArray[i]));
 				}
+				//need to somehow clear the page each time it is pushed as well
 				backbtn.timeAttract();
 			}
 		});
