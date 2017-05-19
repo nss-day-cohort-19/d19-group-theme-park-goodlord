@@ -62,10 +62,11 @@ let map =function (object) {
 				}
 				$("#typeScreen").addClass("hidden");
 				$("#attractionScreen").addClass("hidden");
+				$("#mapScreen").addClass("hidden");
 				$("#timesScreen").removeClass("hidden");
 				let timeArray = attractory.getTime(times);
-				console.log(timeArray);
 				for (var i = 0; i < timeArray.length; i++) {
+					console.log("timeArray[i]", timeArray[i]);
 					$("#timesScreen").append(attractionTemplate(timeArray[i]));
 				}
 			}

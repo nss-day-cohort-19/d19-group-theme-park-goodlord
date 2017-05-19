@@ -80,15 +80,24 @@ let eventsWithTimes = function(object) {
 };
 
 function getTime(times) {
-	let time1 = moment(times).clone();
-	let time2 = moment(times).clone();
-	time1.add(15, 'm');
-	console.log("time1 time2", time1);
+	// let futureTime = moment(times).add(15, 'm');
+	// console.log("futureTime", futureTime);
+	// var timeNow = moment().add(15, 'm');
+	// console.log("timeNow+15", timeNow);
 	let timeArray = [];
+	// var timeA = moment('9:00', 'H:mm');
+	// var timeB = moment('10:00', 'H:mm');
+	// console.log("timeA to TimeB", timeA.from(timeB));
+	// var timeC = moment().set('hour', 9, 'minute', 15);
+	// console.log("timeC",  timeC);
 	for (var i = 0; i < timedEvents.length; i++) {
 		for (var j = 0; j < timedEvents[i].times.length; j++) {
-			if (moment(timedEvents[i].times[j]).isBetween(time2, time1)) {
+			// if (moment(timedEvents[i].times[j]).isBetween(time2, time1)) {
+			// 	timeArray.push(timedEvents[i]);
+			// }
+			if (times == timedEvents[i].times[j]) {
 				timeArray.push(timedEvents[i]);
+				console.log(timeArray);
 			}
 		}
 	}
