@@ -6,6 +6,7 @@ let populate = require("./populate.js");
 let attractionModal = require("./create_modal.js");
 var moment = require('moment');
 let attractionTemplate = require("../templates/attractions.hbs");
+let backbtn = require('./back.js');
 
 // let areaclick = function(event, object, resolve) {
 // 	object.areaID = event.currentTarget.id.replace("area","");
@@ -69,6 +70,7 @@ let map =function (object) {
 					console.log("timeArray[i]", timeArray[i]);
 					$("#timesScreen").append(attractionTemplate(timeArray[i]));
 				}
+				backbtn.timeAttract();
 			}
 		});
 	});
