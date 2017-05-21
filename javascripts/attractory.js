@@ -97,7 +97,7 @@ function getTime(times) {
 			// }
 			if (times == timedEvents[i].times[j]) {
 				timeArray.push(timedEvents[i]);
-				console.log(timeArray);
+				console.log("timeArray", timeArray);
 			}
 		}
 	}

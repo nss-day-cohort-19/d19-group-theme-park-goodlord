@@ -42,7 +42,6 @@ let type =function (object) {
 let map =function (object) {
 	return new Promise ( (resolve, reject) => {
 		$("#master-wrapper").click( function(event) {
-			console.log(event);
 			if (event.target.classList[0] == "parkArea") {
 				object.areaID = event.target.id.replace("area", "");
 				console.log("event fired on area ", object.areaID);
@@ -65,6 +64,7 @@ let map =function (object) {
 				$("#attractionScreen").addClass("hidden");
 				$("#mapScreen").addClass("hidden");
 				$("#timesScreen").removeClass("hidden");
+				$("#timesScreen").html("");
 				let timeArray = attractory.getTime(times);
 				for (var i = 0; i < timeArray.length; i++) {
 					console.log("timeArray[i]", timeArray[i]);
