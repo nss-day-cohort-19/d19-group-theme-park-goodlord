@@ -38,7 +38,6 @@ let type =function (object) {
 	});
 };
 
-
 let map =function (object) {
 	return new Promise ( (resolve, reject) => {
 		$("#master-wrapper").click( function(event) {
@@ -73,7 +72,7 @@ let map =function (object) {
 					console.log("timeArray[i]", timeArray[i]);
 					$("#timesScreen").append(attractionTemplate(timeArray[i]));
 				}
-				//need to somehow clear the page each time it is pushed as well
+
 				//get the 8:55 thing happening
 				backbtn.timeAttract();
 			}
