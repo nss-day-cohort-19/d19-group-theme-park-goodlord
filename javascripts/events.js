@@ -71,6 +71,7 @@ let map =function (object) {
 					$("#timesScreen").append(attractionTemplate(timeArray[i]));
 				}
 				//need to somehow clear the page each time it is pushed as well
+				//get the 8:55 thing happening
 				backbtn.timeAttract();
 			}
 		});
