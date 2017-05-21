@@ -54,6 +54,7 @@ let map =function (object) {
 				let attractions = event.target.id.replace("attractions", "");
 				attractionModal(attractions);
 			}
+
 			if (event.target.parentElement.id == "timedrop") {
 				let times = event.target.innerHTML;
 				console.log("testTime", times);
@@ -65,6 +66,8 @@ let map =function (object) {
 				$("#mapScreen").addClass("hidden");
 				$("#timesScreen").removeClass("hidden");
 				$("#timesScreen").html("");
+				$("#timesScreen").append(`<button class="TimesbackBtn" type="button" class="btn">BACK</button>`);
+				backbtn.timeAttract();
 				let timeArray = attractory.getTime(times);
 				for (var i = 0; i < timeArray.length; i++) {
 					console.log("timeArray[i]", timeArray[i]);
