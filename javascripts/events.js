@@ -68,11 +68,11 @@ let map =function (object) {
 				$("#timesScreen").append(`<button class="TimesbackBtn" type="button" class="btn">BACK</button>`);
 				backbtn.timeAttract();
 				let timeArray = attractory.getTime(times);
+				$("#timesScreen").append(`<h1 class="col-xs-12 timeText">${times}</h3>`);
 				for (var i = 0; i < timeArray.length; i++) {
 					console.log("timeArray[i]", timeArray[i]);
 					$("#timesScreen").append(attractionTemplate(timeArray[i]));
 				}
-
 				//get the 8:55 thing happening
 				backbtn.timeAttract();
 			}
