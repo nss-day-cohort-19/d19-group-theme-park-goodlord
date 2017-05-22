@@ -80,16 +80,30 @@ let eventsWithTimes = function(object) {
 };
 
 function getTime(times) {
-	let time1 = moment(times).clone();
-	let time2 = moment(times).clone();
-	time1.add(15, 'm');
-	console.log("time1 time2", time1);
+	let hr = moment(times, ["HH-mm"]).get('hour');
+	let min = moment(times, ["HH-mm"]).get('minute');
+	let span = moment.duration({'minutes': 15});
+	let time1 = moment().set({'minute': min, 'hour': hr}).add(15, 'm');
+	let time2 = moment().set({'minute': min, 'hour': hr}).subtract(15, 'm');
+	console.log(time1, time2, "times");
 	let timeArray = [];
+	// var timeA = moment('9:00', 'H:mm');
+	// var timeB = moment('10:00', 'H:mm');
+	// console.log("timeA to TimeB", timeA.from(timeB));
+	// var timeC = moment().set('hour', 9, 'minute', 15);
+	// console.log("timeC",  timeC);
 	for (var i = 0; i < timedEvents.length; i++) {
 		for (var j = 0; j < timedEvents[i].times.length; j++) {
-			if (moment(timedEvents[i].times[j]).isBetween(time2, time1)) {
+			let hrs = moment(timedEvents[i].times[j], ["HH-mm"]).get('hour');
+			let mins = moment(timedEvents[i].times[j], ["HH-mm"]).get('minute');
+			let time3 = moment().set({'minute': mins, 'hour': hrs});
+			if (time3.isBetween(time2, time1)) {
 				timeArray.push(timedEvents[i]);
 			}
+			// if (times == timedEvents[i].times[j]) {
+			// 	timeArray.push(timedEvents[i]);
+			// 	console.log("timeArray", timeArray);
+			// }
 		}
 	}
 	return timeArray;

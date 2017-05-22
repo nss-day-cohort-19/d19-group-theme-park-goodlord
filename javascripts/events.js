@@ -6,6 +6,7 @@ let populate = require("./populate.js");
 let attractionModal = require("./create_modal.js");
 var moment = require('moment');
 let attractionTemplate = require("../templates/attractions.hbs");
+let backbtn = require('./back.js');
 
 // let areaclick = function(event, object, resolve) {
 // 	object.areaID = event.currentTarget.id.replace("area","");
@@ -37,11 +38,9 @@ let type =function (object) {
 	});
 };
 
-
 let map =function (object) {
 	return new Promise ( (resolve, reject) => {
 		$("#master-wrapper").click( function(event) {
-			console.log(event);
 			if (event.target.classList[0] == "parkArea") {
 				object.areaID = event.target.id.replace("area", "");
 				console.log("event fired on area ", object.areaID);
@@ -54,6 +53,7 @@ let map =function (object) {
 				let attractions = event.target.id.replace("attractions", "");
 				attractionModal(attractions);
 			}
+
 			if (event.target.parentElement.id == "timedrop") {
 				let times = event.target.innerHTML;
 				console.log("testTime", times);
@@ -62,12 +62,19 @@ let map =function (object) {
 				}
 				$("#typeScreen").addClass("hidden");
 				$("#attractionScreen").addClass("hidden");
+				$("#mapScreen").addClass("hidden");
 				$("#timesScreen").removeClass("hidden");
+				$("#timesScreen").html("");
+				$("#timesScreen").append(`<button class="TimesbackBtn" type="button" class="btn">BACK</button>`);
+				backbtn.timeAttract();
 				let timeArray = attractory.getTime(times);
-				console.log(timeArray);
+				$("#timesScreen").append(`<h1 class="col-xs-12 timeText">${times}</h3>`);
 				for (var i = 0; i < timeArray.length; i++) {
+					console.log("timeArray[i]", timeArray[i]);
 					$("#timesScreen").append(attractionTemplate(timeArray[i]));
 				}
+				//get the 8:55 thing happening
+				backbtn.timeAttract();
 			}
 		});
 	});

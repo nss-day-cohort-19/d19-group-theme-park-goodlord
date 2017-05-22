@@ -19,8 +19,8 @@ let backAttract = function() {
 };
 
 let timeAttract = function() {
-	$(".Timesback").click(function(event) {
-		console.log("back event is firing", event);
+	$(".TimesbackBtn").click(function(event) {
+		console.log("Timesback event is firing", event);
 		$("#attractionScreen").addClass('hidden');
 		$("#typeScreen").addClass('hidden');
 		$("#mapScreen").removeClass('hidden');

@@ -74,6 +74,11 @@ a:active {
     padding: 40px 0;
 }
 
+.timeText {
+    text-align: center;
+    color: white;
+}
+
 .headerStyle {
     background-image: url("../../images/header1.jpeg");
     background-repeat: no-repeat;
@@ -109,6 +114,10 @@ button {
     background-color: black;
     opacity: 1;
     z-index: 100;
+}
+
+.btn {
+    display: block;
 }
 
 // .hoverChange:hover {
